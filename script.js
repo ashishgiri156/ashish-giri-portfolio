@@ -225,6 +225,7 @@ const renderCards = (containerId, cards) => {
 const renderGrid = (containerId, photos) => {
   const container = document.getElementById(containerId);
   if (!container) return;
+  container.setAttribute("data-gallery", containerId);
   container.innerHTML = photos.map(createThumb).join("");
 };
 
@@ -252,7 +253,7 @@ const renderTravel = () => {
         <p>${current.note}</p>
       </div>
       <section class="location-block">
-        <div class="image-grid">
+        <div class="image-grid" data-gallery="travel-${current.country.toLowerCase().replace(/[^a-z0-9]+/g, "-")}">
           ${current.photos
             .map((file) => createThumb({ file, caption: current.country }))
             .join("")}
@@ -270,11 +271,32 @@ const renderTravel = () => {
   renderCountry(travelAtlas[0].country);
 };
 
+let lightboxItems = [];
+let lightboxIndex = -1;
+
+const buildLightboxItems = (buttons) =>
+  buttons.map((button) => ({
+    src: button.dataset.image,
+    caption: button.dataset.caption || button.querySelector("img")?.alt || "Image"
+  }));
+
+const getGalleryButtons = (button) => {
+  const gallery = button.closest("[data-gallery]");
+  if (gallery) {
+    return [...gallery.querySelectorAll(".clickable-image")];
+  }
+
+  return [button];
+};
+
 const bindClickableImages = () => {
   document.querySelectorAll(".clickable-image").forEach((button) => {
     if (button.dataset.bound === "true") return;
     button.dataset.bound = "true";
     button.addEventListener("click", () => {
+      const galleryButtons = getGalleryButtons(button);
+      lightboxItems = buildLightboxItems(galleryButtons);
+      lightboxIndex = galleryButtons.indexOf(button);
       openLightbox(
         button.dataset.image,
         button.dataset.caption || button.querySelector("img")?.alt || "Image"
@@ -325,27 +347,55 @@ const guidedSequence = [
 
 let guidedIndex = -1;
 
+const taskbarText = document.querySelector(".taskbar-text");
+const guidedLabels = {
+  "lab-window": "Research",
+  "travel-window": "Travel",
+  "soccer-window": "Matchday",
+  "kitchen-window": "Kitchen DLC",
+  "teaching-window": "Teaching",
+  "projects-window": "Projects",
+  "scholarships-window": "Awards"
+};
+
+const setTourButtonLabel = (label) => {
+  if (tourButton) {
+    tourButton.textContent = label;
+    tourButton.dataset.state = label.toLowerCase();
+  }
+};
+
 const resetGuidedTour = () => {
   guidedIndex = -1;
-  if (tourButton) {
-    tourButton.textContent = "Start";
+  setTourButtonLabel("Start");
+  if (taskbarText) {
+    taskbarText.textContent = "click icons, open windows, poke around";
   }
 };
 
 const openGuidedStep = (index) => {
+  const currentId = guidedSequence[index];
+  const currentLabel = guidedLabels[currentId] || "Window";
+  const nextLabel = guidedLabels[guidedSequence[index + 1]] || "";
+
   guidedSequence.forEach((id) => {
-    if (id !== guidedSequence[index]) {
+    if (id !== currentId) {
       closeWindow(id);
     }
   });
 
-  openWindow(guidedSequence[index]);
+  openWindow(currentId);
 
-  if (!tourButton) return;
   if (index === guidedSequence.length - 1) {
-    tourButton.textContent = "Finish";
+    setTourButtonLabel("Finish");
+    if (taskbarText) {
+      taskbarText.textContent = "last stop: Awards";
+    }
   } else {
-    tourButton.textContent = "Next";
+    setTourButtonLabel("Next");
+    if (taskbarText) {
+      taskbarText.textContent = `open now: ${currentLabel}  |  next: ${nextLabel}`;
+    }
   }
 };
 
@@ -359,7 +409,9 @@ document.querySelectorAll("[data-close]").forEach((trigger) => {
 
 const tourButton = document.getElementById("tour-button");
 if (tourButton) {
-  tourButton.addEventListener("click", () => {
+  tourButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
     if (guidedIndex >= guidedSequence.length - 1) {
       closeWindow(guidedSequence[guidedSequence.length - 1]);
       resetGuidedTour();
@@ -421,10 +473,18 @@ function openLightbox(src, caption) {
   lightbox.hidden = false;
 }
 
+function showLightboxIndex(index) {
+  if (!lightboxItems.length) return;
+  const normalizedIndex = (index + lightboxItems.length) % lightboxItems.length;
+  lightboxIndex = normalizedIndex;
+  openLightbox(lightboxItems[normalizedIndex].src, lightboxItems[normalizedIndex].caption);
+}
+
 function closeLightbox() {
   lightbox.hidden = true;
   lightboxImage.src = "";
   lightboxCaption.textContent = "";
+  lightboxIndex = -1;
 }
 
 if (lightboxClose) {
@@ -440,6 +500,18 @@ if (lightbox) {
 }
 
 document.addEventListener("keydown", (event) => {
+  if (!lightbox.hidden && event.key === "ArrowRight") {
+    event.preventDefault();
+    showLightboxIndex(lightboxIndex + 1);
+    return;
+  }
+
+  if (!lightbox.hidden && event.key === "ArrowLeft") {
+    event.preventDefault();
+    showLightboxIndex(lightboxIndex - 1);
+    return;
+  }
+
   if (event.key === "Escape") {
     if (!lightbox.hidden) {
       closeLightbox();
