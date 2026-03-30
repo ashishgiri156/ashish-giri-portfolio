@@ -1,4 +1,4 @@
-const asset = (name) => `assets/telegram/${name}`;
+const asset = (name) => `assets/travel-pictures/${name}`;
 
 const labHighlights = [
   {
