@@ -30,10 +30,6 @@
 
       <main class="desktop-stage">
         <section class="desktop-icons" aria-label="Desktop icons">
-          <button class="desktop-icon" type="button" data-open="about-window">
-            <span class="icon-sprite icon-about"></span>
-            <span>About Me</span>
-          </button>
           <button class="desktop-icon" type="button" data-open="lab-window">
             <span class="icon-sprite icon-lab"></span>
             <span>Lab Notes</span>
@@ -73,44 +69,20 @@
             <div class="hero-copy">
               <p class="tiny-label">PLAYER ONE</p>
               <h1>Ashish Giri</h1>
-              <p class="hero-text">
-                Find me either in lab trying to understand how to mechanochemically engineer stem cells to control differentiation,
-                or watching Manchester United games although most of the time I'm just frowning on how bad my team plays,
-                or in humanities libraries reading about Nepal-Tibet relationship.
-              </p>
+              <ul class="hero-bullets">
+                <li>In the lab, trying to understand how mechanochemical engineering can shape stem cell differentiation.</li>
+                <li>Watching Manchester United, usually frowning at how badly we are playing.</li>
+                <li>In humanities libraries, reading about the Nepal-Tibet relationship.</li>
+              </ul>
               <div class="hero-actions">
-                <button class="pixel-btn" type="button" data-open="about-window">Know Me</button>
+                <button class="pixel-btn" type="button" data-open="lab-window">Open Lab Notes</button>
                 <button class="pixel-btn" type="button" data-open="travel-window">Open Travel Atlas</button>
                 <a class="pixel-btn" href="mailto:ashish.giri@mail.mcgill.ca">Email</a>
               </div>
             </div>
-            <div class="hero-photo clickable-image" data-image="assets/telegram/photo_2026-03-29_19-41-59.jpg" data-caption="Sunset silhouette">
-              <img src="assets/telegram/photo_2026-03-29_19-41-59.jpg" alt="Ashish Giri silhouette at sunset by the water" />
+            <div class="hero-photo clickable-image" data-image="assets/telegram/photo_2026-03-29_20-35-14.jpg" data-caption="Ashish Giri portrait">
+              <img src="assets/telegram/photo_2026-03-29_20-35-14.jpg" alt="Portrait of Ashish Giri" />
             </div>
-          </div>
-        </section>
-
-        <section class="window floating-window" id="about-window" data-window hidden>
-          <div class="window-bar green drag-handle">
-            <span>about_me.txt</span>
-            <div class="window-controls">
-              <button type="button" class="window-dot" aria-label="Minimize"></button>
-              <button type="button" class="window-dot" aria-label="Maximize"></button>
-              <button type="button" class="window-dot close-window" data-close="about-window" aria-label="Close"></button>
-            </div>
-          </div>
-          <div class="window-content two-col notes-layout">
-            <div class="note-panel prose-panel">
-              <h2>Not a product page</h2>
-              <p>
-                This site is less about selling a polished version of me and more about the things I actually keep returning to.
-                Lab work. Football. Libraries. Camera roll. Long rabbit holes. Cooking when I need to reset my brain.
-              </p>
-              <p>
-                I like people who are deeply technical and still deeply curious about history, politics, stories, cities, food, and why places feel the way they feel.
-              </p>
-            </div>
-            <div class="card-stack" id="about-cards"></div>
           </div>
         </section>
 
@@ -125,14 +97,14 @@
           </div>
           <div class="window-content two-col">
             <div class="prose-panel">
-              <h2>What I'm thinking about in the lab</h2>
+              <h2>Research Experiences</h2>
               <p>
-                Right now the question that keeps pulling me back is how to mechanochemically engineer stem cells to influence differentiation,
-                and what that means for biomaterials that do more than just sit there passively.
+                Research is the part of my life that has stayed the most constant, but it has never looked the same in every place.
+                These are the labs and institutions where I learned how to design experiments, build workflows, and think across materials, biology, and computation.
               </p>
               <p>
-                A lot of my work has been about making experimental systems smarter: reducing wasted time, improving workflows,
-                and building things that feel elegant rather than patched together.
+                The common thread has been trying to make complicated systems more intentional, whether that meant stem-cell biomaterials,
+                composite manufacturing, antimicrobial coatings, or machine-learning-based cell analysis.
               </p>
             </div>
             <div class="lab-list" id="lab-highlights"></div>
@@ -228,7 +200,7 @@
       </main>
 
       <footer class="taskbar">
-        <button class="start-btn" type="button" data-open="about-window">Start</button>
+        <button class="start-btn" type="button" data-open="lab-window">Start</button>
         <div class="taskbar-text">click icons to open windows</div>
         <div class="clock" id="clock">00:00</div>
       </footer>

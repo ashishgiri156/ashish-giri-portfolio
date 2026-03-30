@@ -306,7 +306,30 @@ button { cursor: pointer; }
 }
 
 .hero-copy h1 { font-size: clamp(3.5rem, 8vw, 6.4rem); }
-.hero-text { font-size: 1.18rem; line-height: 1.8; }
+.hero-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.hero-bullets li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.hero-bullets li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.72rem;
+  color: #9e4a1b;
+}
 
 .hero-photo,
 .note-card,

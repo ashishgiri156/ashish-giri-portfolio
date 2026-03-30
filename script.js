@@ -72,41 +72,26 @@ const files = [
 
 const img = (n) => `assets/telegram/${files[n - 1]}`;
 
-const aboutCards = [
-  {
-    title: 'Usually in the lab',
-    body: 'Trying to understand how stem cells respond to mechanical cues and how engineered materials can influence differentiation instead of just sitting there passively.'
-  },
-  {
-    title: 'Usually on match day',
-    body: 'Watching Manchester United and spending a lot of the game with the same expression: disappointed but still somehow fully committed.'
-  },
-  {
-    title: 'Usually in libraries',
-    body: 'Reading around the Nepal-Tibet relationship, history, movement, and the stories that sit behind maps and borders.'
-  },
-  {
-    title: 'Usually with a camera or a pan',
-    body: 'Taking photos when light feels right, or cooking when I want to think with my hands instead of with a screen.'
-  }
-];
-
 const labHighlights = [
   {
-    title: 'Current question',
-    body: 'How can mechanochemical design be used to influence stem cell differentiation in a controllable way?'
+    title: 'McGill University',
+    body: 'Graduate Research Assistant working on auxetic gels for post-nucleotomy disc reconstruction, bio-orthogonal cell-cell adhesion, and stem-cell retention in regenerative biomaterials.'
   },
   {
-    title: 'What I enjoy',
-    body: 'Making experimental workflows cleaner, more elegant, and less wasteful than the default version.'
+    title: 'Institute of Bio-polymer',
+    body: 'DAAD RISE intern in Germany, where I developed faster workflows for irradiated PLA and PBS testing and studied stereocomplex phase separation in PLA melt.'
   },
   {
-    title: 'What sticks with me',
-    body: 'Good research feels technical, but it also feels tactile. You can tell when a system really works.'
+    title: 'Composite Research Network Lab + Vanderlande',
+    body: 'MITACS Accelerate intern building HDPE-hemp-HDPE biocomposites, designing an in-house single-screw extrusion system, and improving resin infusion efficiency.'
   },
   {
-    title: 'What I value',
-    body: 'Rigor without losing curiosity. Precision without losing taste.'
+    title: 'Harvard Medical School',
+    body: 'Research intern who built a 98% accurate multiclass deep-learning model for single-cell classification by converting 3-D structures into 2-D morphology-based image inputs.'
+  },
+  {
+    title: 'Micro-biome Research Lab',
+    body: 'Worked on ZnO nanoparticle coatings, antimicrobial resistance, sample-preparation methods for leaching studies, and mass-spectrometry-based analysis using two-way ANOVA.'
   }
 ];
 
@@ -398,7 +383,6 @@ const bindClickableImages = () => {
   });
 };
 
-renderCards('about-cards', aboutCards, 'note-card');
 renderCards('lab-highlights', labHighlights, 'highlight-card');
 renderCards('work-cards', workCards, 'work-card');
 renderGrid('soccer-grid', soccerPhotos);
