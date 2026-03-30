@@ -535,14 +535,40 @@ if (clock) {
 
 const visitCount = document.getElementById("visit-count");
 if (visitCount) {
-  const namespace = "oflagz.github.io";
-  const key = "ashish-giri-portfolio-visits";
-  fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then((response) => response.json())
-    .then((data) => {
+  const updateVisitCount = async () => {
+    const domain = window.location.hostname || "oflagz.github.io";
+    const pagePath = window.location.pathname || "/";
+
+    try {
+      const response = await fetch("https://visitor.6developer.com/visit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          domain,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          page_path: pagePath,
+          page_title: document.title,
+          referrer: document.referrer
+        })
+      });
+
+      const data = await response.json();
+      if (typeof data.totalCount === "number") {
+        visitCount.textContent = data.totalCount.toLocaleString();
+        return;
+      }
+    } catch {}
+
+    try {
+      const fallback = await fetch("https://api.countapi.xyz/hit/oflagz.github.io/ashish-giri-portfolio-visits");
+      const data = await fallback.json();
       visitCount.textContent = typeof data.value === "number" ? data.value.toLocaleString() : "n/a";
-    })
-    .catch(() => {
+    } catch {
       visitCount.textContent = "n/a";
-    });
+    }
+  };
+
+  updateVisitCount();
 }
