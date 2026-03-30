@@ -1,6 +1,5 @@
 :root {
   --bg: #2f65c8;
-  --bg-dark: #163677;
   --paper: #f6f0dd;
   --paper-2: #fff8ea;
   --ink: #141533;
@@ -17,8 +16,14 @@ body {
   color: var(--ink);
   background: linear-gradient(180deg, #78b8ff 0%, #3d82ef 35%, #214b9c 100%);
 }
-button, a { font: inherit; }
-button { cursor: pointer; }
+
+button,
+a { font: inherit; }
+
+button {
+  cursor: pointer;
+  color: inherit;
+}
 
 .desktop-shell {
   position: relative;
@@ -43,13 +48,14 @@ button { cursor: pointer; }
 .desktop-icon,
 .taskbar,
 .pixel-btn,
-.note-card,
+.pixel-card,
 .highlight-card,
 .country-button,
 .location-block,
 .thumb-button,
 .work-card,
-.lightbox-card {
+.lightbox-card,
+.intro-terminal {
   border: 3px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -74,12 +80,15 @@ button { cursor: pointer; }
 .pixel-btn,
 .start-btn,
 .desktop-icon span:last-child,
-.country-button {
+.country-button,
+.intro-tag,
+.intro-command {
   font-family: "Press Start 2P", cursive;
 }
 
 .system-name { font-size: 0.72rem; }
 .system-status { font-size: 0.54rem; }
+
 .visit-pill {
   display: inline-block;
   margin-left: 0.8rem;
@@ -120,7 +129,9 @@ button { cursor: pointer; }
 }
 
 .desktop-icon:hover,
-.desktop-icon:focus-visible { background: rgba(255, 218, 107, 0.3); }
+.desktop-icon:focus-visible {
+  background: rgba(255, 218, 107, 0.3);
+}
 
 .icon-sprite {
   display: inline-block;
@@ -137,13 +148,13 @@ button { cursor: pointer; }
   position: absolute;
 }
 
-.icon-about::before,
 .icon-lab::before,
 .icon-travel::before,
 .icon-soccer::before,
 .icon-kitchen::before,
-.icon-photo::before,
-.icon-work::before {
+.icon-teaching::before,
+.icon-projects::before,
+.icon-awards::before {
   inset: 10px;
   border: 3px solid #1f2248;
   background: rgba(255,255,255,0.56);
@@ -154,15 +165,6 @@ button { cursor: pointer; }
   border-radius: 50%;
   border: 3px solid #1f2248;
   background: #fff;
-}
-
-.icon-photo::after {
-  left: 8px;
-  bottom: 8px;
-  width: 30px;
-  height: 18px;
-  background: linear-gradient(180deg, #7adfff, #40924f);
-  border: 3px solid #1f2248;
 }
 
 .icon-kitchen::after {
@@ -194,12 +196,31 @@ button { cursor: pointer; }
   border: 3px solid #1f2248;
 }
 
-.icon-work::after {
+.icon-teaching::after {
+  left: 11px;
+  top: 14px;
+  width: 24px;
+  height: 16px;
+  background: #9cf0ff;
+  border: 3px solid #1f2248;
+}
+
+.icon-projects::after {
+  left: 14px;
+  top: 13px;
+  width: 20px;
+  height: 20px;
+  background: #80f07d;
+  border: 3px solid #1f2248;
+}
+
+.icon-awards::after {
   left: 12px;
   top: 12px;
-  width: 24px;
-  height: 18px;
-  background: #6ba8ff;
+  width: 22px;
+  height: 22px;
+  background: #ffcc55;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 92%, 50% 70%, 21% 92%, 32% 57%, 2% 35%, 39% 35%);
   border: 3px solid #1f2248;
 }
 
@@ -210,7 +231,6 @@ button { cursor: pointer; }
   max-width: min(980px, calc(100vw - 2rem));
 }
 
-.window.open { display: block; }
 .window[hidden] { display: none; }
 
 .hero-window {
@@ -253,7 +273,11 @@ button { cursor: pointer; }
 .window-bar.teal { background: linear-gradient(90deg, #0d787b, #59ece7); }
 .window-bar.gold { background: linear-gradient(90deg, #8d6600, #ffd362); }
 
-.window-controls { display: flex; gap: 0.35rem; }
+.window-controls {
+  display: flex;
+  gap: 0.35rem;
+}
+
 .window-dot {
   width: 12px;
   height: 12px;
@@ -276,22 +300,21 @@ button { cursor: pointer; }
 }
 
 .hero-layout,
-.two-col { grid-template-columns: 1.1fr 0.9fr; }
+.two-col { grid-template-columns: 1.08fr 0.92fr; }
 .atlas-layout { grid-template-columns: 240px 1fr; }
 
 .tiny-label,
 .gallery-header p,
 .prose-panel p,
-.note-card p,
 .highlight-card p,
 .work-card p,
-.location-meta {
+.location-meta,
+.intro-response {
   line-height: 1.7;
 }
 
 .tiny-label {
   margin: 0 0 0.8rem;
-  font-family: "Press Start 2P", cursive;
   font-size: 0.6rem;
   color: #9e4a1b;
 }
@@ -299,40 +322,20 @@ button { cursor: pointer; }
 .hero-copy h1,
 .prose-panel h2,
 .gallery-header h2,
-.feature-title,
-.location-block h3 {
+.location-block h3,
+.country-header h2 {
   margin: 0;
   font-family: "VT323", monospace;
 }
 
-.hero-copy h1 { font-size: clamp(3.5rem, 8vw, 6.4rem); }
-.hero-bullets {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.8rem;
-  font-size: 1.12rem;
-  line-height: 1.75;
+.hero-copy h1 {
+  font-size: clamp(3.5rem, 8vw, 6.4rem);
+  margin-bottom: 0.8rem;
 }
 
-.hero-bullets li {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.hero-bullets li::before {
-  content: ">";
-  position: absolute;
-  left: 0;
-  top: 0.15rem;
-  font-family: "Press Start 2P", cursive;
-  font-size: 0.72rem;
-  color: #9e4a1b;
-}
-
+.intro-terminal,
+.pixel-card,
 .hero-photo,
-.note-card,
 .highlight-card,
 .country-button,
 .location-block,
@@ -340,6 +343,48 @@ button { cursor: pointer; }
 .work-card,
 .prose-panel {
   background: var(--paper-2);
+}
+
+.intro-terminal {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f9f1d2;
+}
+
+.intro-command {
+  margin: 0 0 0.55rem;
+  font-size: 0.62rem;
+  color: #13653f;
+}
+
+.intro-response {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.intro-cards {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pixel-card {
+  padding: 1rem;
+  text-align: left;
+}
+
+.intro-card strong {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+.intro-tag {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.55rem;
+  color: #9e4a1b;
 }
 
 .hero-photo {
@@ -374,17 +419,22 @@ button { cursor: pointer; }
   font-size: 0.62rem;
 }
 
-.notes-layout { align-items: start; }
-.card-stack,
 .lab-list,
-.work-cards { display: grid; gap: 0.8rem; }
-.note-card,
+.work-cards {
+  display: grid;
+  gap: 0.8rem;
+}
+
 .highlight-card,
 .work-card,
-.prose-panel { padding: 1rem; }
-.note-card h3,
+.prose-panel {
+  padding: 1rem;
+}
+
 .highlight-card h3,
-.work-card h3 { margin: 0 0 0.35rem; }
+.work-card h3 {
+  margin: 0 0 0.35rem;
+}
 
 .country-list {
   display: grid;
@@ -405,30 +455,58 @@ button { cursor: pointer; }
   transform: translate(-4px, -4px);
 }
 
-.country-view { display: grid; gap: 1rem; }
+.country-view {
+  display: grid;
+  gap: 1rem;
+}
+
 .country-header {
   padding: 1rem;
   border: 3px solid var(--line);
   box-shadow: var(--shadow);
   background: #fff7c9;
 }
-.country-header h2 { margin: 0; font-family: "VT323", monospace; font-size: 2.8rem; }
-.country-header p { margin: 0.4rem 0 0; }
-.location-grid { display: grid; gap: 1rem; }
-.location-block { padding: 1rem; }
-.location-block h3 { font-size: 2rem; margin-bottom: 0.2rem; }
-.location-meta { margin: 0 0 0.9rem; }
+
+.country-header h2 {
+  font-size: 2.8rem;
+}
+
+.country-header p {
+  margin: 0.4rem 0 0;
+}
+
+.location-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.location-block {
+  padding: 1rem;
+}
+
+.location-block h3 {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.location-meta {
+  margin: 0 0 0.9rem;
+}
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.8rem;
 }
+
 .thumb-button {
   padding: 0;
   overflow: hidden;
   text-align: left;
 }
+
 .thumb-button img { aspect-ratio: 4 / 5; }
+
 .thumb-button span {
   display: block;
   padding: 0.65rem 0.75rem;
@@ -437,16 +515,28 @@ button { cursor: pointer; }
   font-size: 0.92rem;
 }
 
-.gallery-window { display: grid; gap: 1rem; }
-.gallery-header h2 { font-size: 2.8rem; }
+.gallery-window {
+  display: grid;
+  gap: 1rem;
+}
+
+.work-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.gallery-header h2 {
+  font-size: 2.8rem;
+}
 
 .soccer-grid .thumb-button:first-child,
-.food-grid .thumb-button:first-child,
-.photo-grid .thumb-button:first-child {
+.food-grid .thumb-button:first-child {
   grid-column: span 2;
 }
 
-.work-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.work-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
 .taskbar {
   position: fixed;
@@ -530,6 +620,10 @@ button { cursor: pointer; }
   .large-window {
     width: calc(100vw - 220px);
   }
+
+  .intro-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 920px) {
@@ -556,6 +650,7 @@ button { cursor: pointer; }
   .two-col,
   .atlas-layout { grid-template-columns: 1fr; }
   .work-cards { grid-template-columns: 1fr; }
+
   .visit-pill {
     display: block;
     margin: 0.7rem 0 0;
@@ -568,8 +663,9 @@ button { cursor: pointer; }
   .desktop-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .window-content { padding: 0.8rem; }
   .hero-photo { min-height: 320px; }
+
   .soccer-grid .thumb-button:first-child,
-  .food-grid .thumb-button:first-child,
-  .photo-grid .thumb-button:first-child { grid-column: span 1; }
+  .food-grid .thumb-button:first-child { grid-column: span 1; }
+
   .taskbar { grid-template-columns: 1fr; }
 }

@@ -6,7 +6,7 @@
     <title>Ashish Giri</title>
     <meta
       name="description"
-      content="Interactive personal site for Ashish Giri with retro desktop windows, travel atlas, cooking gallery, soccer gallery, and photo roll."
+      content="Interactive personal site for Ashish Giri with retro desktop windows, research notes, travel atlas, soccer, cooking, teaching, projects, and scholarships."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
       <header class="top-strip">
         <div class="system-name">ASHISH.EXE</div>
         <div class="system-status">
-          interactive personal archive
+          personal archive mode
           <span class="visit-pill">visits: <strong id="visit-count">...</strong></span>
         </div>
       </header>
@@ -40,19 +40,23 @@
           </button>
           <button class="desktop-icon" type="button" data-open="soccer-window">
             <span class="icon-sprite icon-soccer"></span>
-            <span>Soccer</span>
+            <span>Matchday</span>
           </button>
           <button class="desktop-icon" type="button" data-open="kitchen-window">
             <span class="icon-sprite icon-kitchen"></span>
-            <span>Kitchen</span>
+            <span>Kitchen DLC</span>
           </button>
-          <button class="desktop-icon" type="button" data-open="photo-window">
-            <span class="icon-sprite icon-photo"></span>
-            <span>Photo Roll</span>
+          <button class="desktop-icon" type="button" data-open="teaching-window">
+            <span class="icon-sprite icon-teaching"></span>
+            <span>Office Hours</span>
           </button>
-          <button class="desktop-icon" type="button" data-open="work-window">
-            <span class="icon-sprite icon-work"></span>
-            <span>Work</span>
+          <button class="desktop-icon" type="button" data-open="projects-window">
+            <span class="icon-sprite icon-projects"></span>
+            <span>Build Log</span>
+          </button>
+          <button class="desktop-icon" type="button" data-open="scholarships-window">
+            <span class="icon-sprite icon-awards"></span>
+            <span>Loot Chest</span>
           </button>
         </section>
 
@@ -69,19 +73,41 @@
             <div class="hero-copy">
               <p class="tiny-label">PLAYER ONE</p>
               <h1>Ashish Giri</h1>
-              <ul class="hero-bullets">
-                <li>In the lab, trying to understand how mechanochemical engineering can shape stem cell differentiation.</li>
-                <li>Watching Manchester United, usually frowning at how badly we are playing.</li>
-                <li>In humanities libraries, reading about the Nepal-Tibet relationship.</li>
-              </ul>
+
+              <div class="intro-terminal">
+                <p class="intro-command">$ whereis ashish</p>
+                <p class="intro-response">Not in one place for very long. Usually rotating between these tabs:</p>
+              </div>
+
+              <div class="intro-cards">
+                <button class="intro-card pixel-card" type="button" data-open="lab-window">
+                  <span class="intro-tag">LAB MODE</span>
+                  <strong>Trying to understand how mechanochemical engineering can push stem cells toward differentiation in a controllable way.</strong>
+                </button>
+                <button class="intro-card pixel-card" type="button" data-open="soccer-window">
+                  <span class="intro-tag">MATCHDAY</span>
+                  <strong>Watching Manchester United and spending a lot of that time wondering how we manage to make everything harder than it needs to be.</strong>
+                </button>
+                <button class="intro-card pixel-card" type="button" data-open="travel-window">
+                  <span class="intro-tag">LIBRARY / RABBIT HOLE</span>
+                  <strong>Reading about the Nepal-Tibet relationship, history, movement, and the kinds of stories that stick to places.</strong>
+                </button>
+              </div>
+
               <div class="hero-actions">
-                <button class="pixel-btn" type="button" data-open="lab-window">Open Lab Notes</button>
+                <button class="pixel-btn" type="button" data-open="lab-window">Open Research</button>
                 <button class="pixel-btn" type="button" data-open="travel-window">Open Travel Atlas</button>
+                <button class="pixel-btn" type="button" data-open="projects-window">Open Build Log</button>
                 <a class="pixel-btn" href="mailto:ashish.giri@mail.mcgill.ca">Email</a>
               </div>
             </div>
-            <div class="hero-photo clickable-image" data-image="assets/telegram/photo_2026-03-29_20-35-14.jpg" data-caption="Ashish Giri portrait">
-              <img src="assets/telegram/photo_2026-03-29_20-35-14.jpg" alt="Portrait of Ashish Giri" />
+
+            <div
+              class="hero-photo clickable-image"
+              data-image="assets/telegram/photo_2026-03-29_19-42-42.jpg"
+              data-caption="Montreal winter"
+            >
+              <img src="assets/telegram/photo_2026-03-29_19-42-42.jpg" alt="Montreal winter scene" />
             </div>
           </div>
         </section>
@@ -99,12 +125,12 @@
             <div class="prose-panel">
               <h2>Research Experiences</h2>
               <p>
-                Research is the part of my life that has stayed the most constant, but it has never looked the same in every place.
-                These are the labs and institutions where I learned how to design experiments, build workflows, and think across materials, biology, and computation.
+                This is the thread that ties most of my technical life together: biomaterials, manufacturing,
+                mechanics, coatings, and machine learning, all through the lens of building cleaner systems and better experiments.
               </p>
               <p>
-                The common thread has been trying to make complicated systems more intentional, whether that meant stem-cell biomaterials,
-                composite manufacturing, antimicrobial coatings, or machine-learning-based cell analysis.
+                The main question I keep circling back to right now is how to mechanochemically engineer stem cells to control differentiation,
+                but I got here by bouncing through very different labs and learning how each one thinks.
               </p>
             </div>
             <div class="lab-list" id="lab-highlights"></div>
@@ -138,7 +164,7 @@
           <div class="window-content gallery-window">
             <div class="gallery-header">
               <h2>Soccer</h2>
-              <p>The most reliable way to clear my head, compete, and stop overthinking for a while.</p>
+              <p>Scholes from kathmandu</p>
             </div>
             <div class="image-grid soccer-grid" id="soccer-grid"></div>
           </div>
@@ -156,52 +182,70 @@
           <div class="window-content gallery-window">
             <div class="gallery-header">
               <h2>Cooking</h2>
-              <p>I like cooking for the same reason I like engineering: iteration, instinct, timing, and getting the details right.</p>
+              <p>Had to learn how to cook after I tried UBC Meal Plan 🤮</p>
             </div>
             <div class="image-grid food-grid" id="kitchen-grid"></div>
           </div>
         </section>
 
-        <section class="window floating-window" id="photo-window" data-window hidden>
-          <div class="window-bar teal drag-handle">
-            <span>photo_roll.camera</span>
+        <section class="window floating-window" id="teaching-window" data-window hidden>
+          <div class="window-bar green drag-handle">
+            <span>office_hours.arcade</span>
             <div class="window-controls">
               <button type="button" class="window-dot"></button>
               <button type="button" class="window-dot"></button>
-              <button type="button" class="window-dot close-window" data-close="photo-window"></button>
-            </div>
-          </div>
-          <div class="window-content gallery-window">
-            <div class="gallery-header">
-              <h2>Photography</h2>
-              <p>The shots I like most usually have atmosphere: water, night, weather, reflections, or a scene that feels half-quiet and half-cinematic.</p>
-            </div>
-            <div class="image-grid photo-grid" id="photo-grid"></div>
-          </div>
-        </section>
-
-        <section class="window floating-window" id="work-window" data-window hidden>
-          <div class="window-bar gold drag-handle">
-            <span>work_archive.dat</span>
-            <div class="window-controls">
-              <button type="button" class="window-dot"></button>
-              <button type="button" class="window-dot"></button>
-              <button type="button" class="window-dot close-window" data-close="work-window"></button>
+              <button type="button" class="window-dot close-window" data-close="teaching-window"></button>
             </div>
           </div>
           <div class="window-content work-layout">
             <div class="gallery-header">
-              <h2>Work</h2>
-              <p>The technical side is still here, just without turning the whole site into a brochure.</p>
+              <h2>Office Hours Arcade</h2>
+              <p>Tutorials, review sessions, grading, machine-shop supervision, and trying to make hard courses feel less hostile.</p>
             </div>
-            <div class="work-cards" id="work-cards"></div>
+            <div class="work-cards" id="teaching-cards"></div>
+          </div>
+        </section>
+
+        <section class="window floating-window" id="projects-window" data-window hidden>
+          <div class="window-bar teal drag-handle">
+            <span>build_log.save</span>
+            <div class="window-controls">
+              <button type="button" class="window-dot"></button>
+              <button type="button" class="window-dot"></button>
+              <button type="button" class="window-dot close-window" data-close="projects-window"></button>
+            </div>
+          </div>
+          <div class="window-content work-layout">
+            <div class="gallery-header">
+              <h2>Build Log</h2>
+              <p>Some of the projects where I got to make something concrete instead of only talking about it.</p>
+            </div>
+            <div class="work-cards" id="project-cards"></div>
+          </div>
+        </section>
+
+        <section class="window floating-window" id="scholarships-window" data-window hidden>
+          <div class="window-bar gold drag-handle">
+            <span>loot_chest.dat</span>
+            <div class="window-controls">
+              <button type="button" class="window-dot"></button>
+              <button type="button" class="window-dot"></button>
+              <button type="button" class="window-dot close-window" data-close="scholarships-window"></button>
+            </div>
+          </div>
+          <div class="window-content work-layout">
+            <div class="gallery-header">
+              <h2>Loot Chest</h2>
+              <p>Scholarships and awards that made a real difference in what I could study, build, and say yes to.</p>
+            </div>
+            <div class="work-cards" id="scholarship-cards"></div>
           </div>
         </section>
       </main>
 
       <footer class="taskbar">
         <button class="start-btn" type="button" data-open="lab-window">Start</button>
-        <div class="taskbar-text">click icons to open windows</div>
+        <div class="taskbar-text">click icons, open windows, poke around</div>
         <div class="clock" id="clock">00:00</div>
       </footer>
     </div>

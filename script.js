@@ -1,333 +1,332 @@
-const files = [
-  'photo_2026-03-29_19-43-46.jpg',
-  'photo_2026-03-29_19-43-44.jpg',
-  'photo_2026-03-29_19-43-43.jpg',
-  'photo_2026-03-29_19-43-41.jpg',
-  'photo_2026-03-29_19-43-40.jpg',
-  'photo_2026-03-29_19-43-38.jpg',
-  'photo_2026-03-29_19-43-36.jpg',
-  'photo_2026-03-29_19-43-35.jpg',
-  'photo_2026-03-29_19-43-33.jpg',
-  'photo_2026-03-29_19-43-32.jpg',
-  'photo_2026-03-29_19-43-30.jpg',
-  'photo_2026-03-29_19-43-29.jpg',
-  'photo_2026-03-29_19-43-27.jpg',
-  'photo_2026-03-29_19-43-26.jpg',
-  'photo_2026-03-29_19-43-24.jpg',
-  'photo_2026-03-29_19-43-23.jpg',
-  'photo_2026-03-29_19-43-21.jpg',
-  'photo_2026-03-29_19-43-20.jpg',
-  'photo_2026-03-29_19-43-18.jpg',
-  'photo_2026-03-29_19-43-17.jpg',
-  'photo_2026-03-29_19-43-15.jpg',
-  'photo_2026-03-29_19-43-13.jpg',
-  'photo_2026-03-29_19-43-12.jpg',
-  'photo_2026-03-29_19-43-10.jpg',
-  'photo_2026-03-29_19-43-08.jpg',
-  'photo_2026-03-29_19-43-07.jpg',
-  'photo_2026-03-29_19-43-05.jpg',
-  'photo_2026-03-29_19-43-04.jpg',
-  'photo_2026-03-29_19-43-02.jpg',
-  'photo_2026-03-29_19-43-00.jpg',
-  'photo_2026-03-29_19-42-58.jpg',
-  'photo_2026-03-29_19-42-56.jpg',
-  'photo_2026-03-29_19-42-49.jpg',
-  'photo_2026-03-29_19-42-47.jpg',
-  'photo_2026-03-29_19-42-46.jpg',
-  'photo_2026-03-29_19-42-44.jpg',
-  'photo_2026-03-29_19-42-42.jpg',
-  'photo_2026-03-29_19-42-41.jpg',
-  'photo_2026-03-29_19-42-39.jpg',
-  'photo_2026-03-29_19-42-38.jpg',
-  'photo_2026-03-29_19-42-36.jpg',
-  'photo_2026-03-29_19-42-35.jpg',
-  'photo_2026-03-29_19-42-33.jpg',
-  'photo_2026-03-29_19-42-32.jpg',
-  'photo_2026-03-29_19-42-30.jpg',
-  'photo_2026-03-29_19-42-29.jpg',
-  'photo_2026-03-29_19-42-28.jpg',
-  'photo_2026-03-29_19-42-26.jpg',
-  'photo_2026-03-29_19-42-25.jpg',
-  'photo_2026-03-29_19-42-23.jpg',
-  'photo_2026-03-29_19-42-21.jpg',
-  'photo_2026-03-29_19-42-20.jpg',
-  'photo_2026-03-29_19-42-18.jpg',
-  'photo_2026-03-29_19-42-17.jpg',
-  'photo_2026-03-29_19-42-15.jpg',
-  'photo_2026-03-29_19-42-13.jpg',
-  'photo_2026-03-29_19-42-12.jpg',
-  'photo_2026-03-29_19-42-11.jpg',
-  'photo_2026-03-29_19-42-09.jpg',
-  'photo_2026-03-29_19-42-07.jpg',
-  'photo_2026-03-29_19-42-06.jpg',
-  'photo_2026-03-29_19-42-04.jpg',
-  'photo_2026-03-29_19-42-02.jpg',
-  'photo_2026-03-29_19-42-01.jpg',
-  'photo_2026-03-29_19-41-59.jpg',
-  'photo_2026-03-29_19-41-57.jpg',
-  'photo_2026-03-29_19-41-55.jpg',
-  'photo_2026-03-29_19-41-53.jpg',
-  'photo_2026-03-29_19-41-50.jpg'
-];
-
-const img = (n) => `assets/telegram/${files[n - 1]}`;
+const asset = (name) => `assets/telegram/${name}`;
 
 const labHighlights = [
   {
-    title: 'McGill University',
-    body: 'Graduate Research Assistant working on auxetic gels for post-nucleotomy disc reconstruction, bio-orthogonal cell-cell adhesion, and stem-cell retention in regenerative biomaterials.'
+    title: "McGill University",
+    body: "Graduate Research Assistant in Canada working on auxetic gels for post-nucleotomy disc reconstruction, bio-orthogonal cell-cell adhesion, stem-cell retention, and a gel-free bio-ink for 3-D organoid printing."
   },
   {
-    title: 'Institute of Bio-polymer',
-    body: 'DAAD RISE intern in Germany, where I developed faster workflows for irradiated PLA and PBS testing and studied stereocomplex phase separation in PLA melt.'
+    title: "Institute of Bio-polymer",
+    body: "DAAD RISE Intern in Germany. Built a new dog-bone sample workflow for irradiated PLA and PBS, cut experimental time by 2.5 months, reduced costs by 10K, and optimized multi-temperature irradiation testing."
   },
   {
-    title: 'Composite Research Network Lab + Vanderlande',
-    body: 'MITACS Accelerate intern building HDPE-hemp-HDPE biocomposites, designing an in-house single-screw extrusion system, and improving resin infusion efficiency.'
+    title: "Composite Research Network Lab + Vanderlande",
+    body: "MITACS Accelerate Intern in Canada. Developed HDPE-hemp-HDPE biocomposite workflows, designed an in-house single-screw extrusion system that saved 30K, and improved carbon-fibre resin infusion efficiency by 20%."
   },
   {
-    title: 'Harvard Medical School',
-    body: 'Research intern who built a 98% accurate multiclass deep-learning model for single-cell classification by converting 3-D structures into 2-D morphology-based image inputs.'
+    title: "Harvard Medical School",
+    body: "Research Intern in the USA. Built a 98% accurate deep-learning multiclass image classifier for single-cell morphology by translating 3-D cell structure into 2-D image inputs."
   },
   {
-    title: 'Micro-biome Research Lab',
-    body: 'Worked on ZnO nanoparticle coatings, antimicrobial resistance, sample-preparation methods for leaching studies, and mass-spectrometry-based analysis using two-way ANOVA.'
+    title: "Micro-biome Research Lab",
+    body: "Research Intern in Canada. Worked on ZnO nanoparticle coatings, antimicrobial resistance, leaching behavior in aqueous environments, and mass spectrometry analysis using two-way ANOVA."
   }
 ];
 
-const workCards = [
+const teachingCards = [
   {
-    title: 'McGill University',
-    body: 'Graduate Research Assistant working on auxetic gels, stem-cell retention, and engineered bio-orthogonal adhesion systems for regenerative applications.'
+    title: "McGill University / Mechanics + Thermodynamics",
+    body: "Teaching Assistant since January 2026. Ran weekly tutorials for 72 students and helped with grading, lecture materials, and exams."
   },
   {
-    title: 'Institute of Bio-polymer',
-    body: 'DAAD RISE intern who redesigned irradiation testing workflows for PLA and PBS, saving months of experimental time.'
+    title: "McGill University / Statics",
+    body: "Teaching Assistant in Fall 2025. Led weekly tutorial sessions for 180 students and helped build teaching material for the course."
   },
   {
-    title: 'Composite Research Network Lab + Vanderlande',
-    body: 'Built better biocomposite workflows, designed an in-house extrusion system, and cut project cost by about $30k.'
+    title: "UBC / System Dynamics + General Mechanics",
+    body: "Teaching Assistant in Fall 2024. Ran weekly review sessions for one section of 47 students and three sections of 30 students each, helping lift the course average by 5% from the previous year."
   },
   {
-    title: 'Harvard Medical School',
-    body: 'Built a 98% accurate multiclass model for single-cell morphology classification by translating 3-D structures into 2-D image inputs.'
+    title: "UBC / Advanced Manufacturing",
+    body: "Teaching Assistant in Fall 2023. Supervised a cohort of 40 students in the machine shop as they built locomotive-model or clamp design projects, while running regular tutorials."
   },
   {
-    title: 'Teaching',
-    body: 'Teaching assistant roles at McGill and UBC, plus peer-learning work that raised course averages and helped large groups of students actually get the material.'
+    title: "Supplemental Learning Hub",
+    body: "Supplemental Learning Leader from 2022 to 2023. Organized review sessions and office hours that helped move the course average from 65% to 75% in engineering mechanics."
+  }
+];
+
+const projectCards = [
+  {
+    title: "Lead-shielding Workflow for Skin Cancer Treatment",
+    body: "Built an automated Blender API and Python workflow that imported 3-D facial scans and generated positive and negative molds for custom lead-shielding masks, cutting mold fabrication time by one week."
   },
   {
-    title: 'Tools I keep returning to',
-    body: 'Python, C++, SolidWorks, Blender, ABAQUS, mechanical testing, workflow design, and figuring out how to make research systems less clumsy.'
+    title: "Gearbox Design",
+    body: "Designed a one-stage reduction gearbox for a vessel propulsion system in SolidWorks and used von Mises stress FEA in ABAQUS to predict the first point of failure."
+  },
+  {
+    title: "Thermal Actuator-Controlled Micro-grippers",
+    body: "Designed and fabricated a 10-micron thermally actuated micro-gripper for precise red-blood-cell manipulation using stereolithography, OpenCV, and K-Layout."
+  }
+];
+
+const scholarshipCards = [
+  {
+    title: "Graduate Student Scholarship / McGill",
+    body: "2025 to 2027. 28,000 CAD per year."
+  },
+  {
+    title: "Donald A. Wehrung International Student Award / UBC",
+    body: "2020 to 2024. 79,000 CAD per year."
+  },
+  {
+    title: "Dr. Spiro Yannacopoulos International Engineering Student Memorial Award / UBC",
+    body: "Awarded in 2021, 2022, and 2024. 10,000 CAD each time."
+  },
+  {
+    title: "RISE Globalink Scholarship / MITACS + DAAD",
+    body: "2024. 6,000 CAD."
+  },
+  {
+    title: "Deputy Vice Chancellor's Award / UBC",
+    body: "Awarded in 2021, 2022, 2023, and 2024. 500 CAD each time."
+  },
+  {
+    title: "Multidisciplinary Undergraduate Research in Health Award",
+    body: "2021. 6,000 CAD from the Materials and Manufacturing Research Institute at UBC."
   }
 ];
 
 const soccerPhotos = [
-  { n: 1, caption: 'In play' },
-  { n: 2, caption: 'Football with community' },
-  { n: 3, caption: 'Not technically soccer, but definitely athletic chaos' },
-  { n: 4, caption: 'Number 09' }
+  { file: "photo_2026-03-29_19-43-46.jpg", caption: "On the ball" },
+  { file: "photo_2026-03-29_19-43-44.jpg", caption: "Football and community" },
+  { file: "photo_2026-03-29_19-43-43.jpg", caption: "Not football, but still serious hang time" },
+  { file: "photo_2026-03-29_19-43-41.jpg", caption: "Number 09" }
 ];
 
 const cookingPhotos = [
-  { n: 8, caption: 'Steak dinner' },
-  { n: 35, caption: 'Creamy chicken pan' },
-  { n: 53, caption: 'Spiced chicken dish' },
-  { n: 54, caption: 'Loaded wrap' },
-  { n: 55, caption: 'Pasta bowl' },
-  { n: 56, caption: 'Broth and noodles' },
-  { n: 57, caption: 'Red-sauce pasta' },
-  { n: 59, caption: 'Skillet chicken' },
-  { n: 64, caption: 'Skewers, wraps, and sides' },
-  { n: 68, caption: 'Chicken noodle soup' }
-];
-
-const photoRoll = [
-  { n: 9, caption: 'Neon geometry at night' },
-  { n: 27, caption: 'Orange industrial sunset' },
-  { n: 34, caption: 'Waterfall dusk' },
-  { n: 37, caption: 'Sun over open water' },
-  { n: 38, caption: 'River, balloon, bridge' },
-  { n: 50, caption: 'Forest waterfall' },
-  { n: 58, caption: 'Park reflection at dusk' },
-  { n: 60, caption: 'Winter road at night' },
-  { n: 61, caption: 'Silhouette at sunset' },
-  { n: 62, caption: 'Autumn lake' },
-  { n: 63, caption: 'Autumn street' },
-  { n: 66, caption: 'Lake and mountain overlook' },
-  { n: 67, caption: 'Winter lights' },
-  { n: 30, caption: 'Deer crossing at dusk' },
-  { n: 31, caption: 'Cloud shelf over the road' },
-  { n: 36, caption: 'Spring blossom canopy' },
-  { n: 5, caption: 'Quiet sidewalk scene' }
+  { file: "photo_2026-03-29_19-43-35.jpg", caption: "Steak night" },
+  { file: "photo_2026-03-29_19-42-46.jpg", caption: "Creamy chicken pan" },
+  { file: "photo_2026-03-29_19-42-18.jpg", caption: "Spiced chicken" },
+  { file: "photo_2026-03-29_19-42-17.jpg", caption: "Loaded wrap" },
+  { file: "photo_2026-03-29_19-42-15.jpg", caption: "Pasta bowl" },
+  { file: "photo_2026-03-29_19-42-13.jpg", caption: "Broth and noodles" },
+  { file: "photo_2026-03-29_19-42-12.jpg", caption: "Red sauce pasta" },
+  { file: "photo_2026-03-29_19-42-09.jpg", caption: "Skillet chicken" },
+  { file: "photo_2026-03-29_19-42-01.jpg", caption: "Skewers and sides" },
+  { file: "photo_2026-03-29_19-41-53.jpg", caption: "Chicken noodle soup" }
 ];
 
 const travelAtlas = [
   {
-    country: 'Nepal',
-    note: 'Temples, mountains, airport windows, and the kind of landscapes that stay in your head long after you leave.',
+    country: "Nepal",
+    note: "Home, mountains, temples, early flights, and the kind of horizon that makes everything else feel smaller.",
     locations: [
       {
-        name: 'Himalayan Views',
-        note: 'Mountain light, altitude, distance.',
-        photos: [6, 51]
+        name: "Annapurna / sunrise layers",
+        note: "Ridges, first light, and those unreal pink dawn gradients.",
+        photos: [
+          "photo_2026-03-29_20-56-45.jpg",
+          "photo_2026-03-29_20-56-44.jpg",
+          "photo_2026-03-29_20-56-40.jpg",
+          "photo_2026-03-29_19-42-35.jpg"
+        ]
       },
       {
-        name: 'Kathmandu Valley / Heritage Sites',
-        note: 'Squares, temples, and stone architecture.',
-        photos: [42, 52]
+        name: "Annapurna / peaks and trails",
+        note: "Prayer flags, ridgelines, valley cuts, and one mountain after another.",
+        photos: [
+          "photo_2026-03-29_20-56-43.jpg",
+          "photo_2026-03-29_20-56-42.jpg",
+          "photo_2026-03-29_20-56-39.jpg",
+          "photo_2026-03-29_20-56-37.jpg"
+        ]
+      },
+      {
+        name: "Kathmandu Valley",
+        note: "Temples, airport windows, and quieter corners.",
+        photos: [
+          "photo_2026-03-29_20-56-36.jpg",
+          "photo_2026-03-29_19-42-23.jpg",
+          "photo_2026-03-29_19-42-21.jpg"
+        ]
       }
     ]
   },
   {
-    country: 'Qatar',
-    note: 'One photo, but too sharp and neon to leave out.',
+    country: "Canada",
+    note: "Montreal, road trips, seasons changing too fast, and the kinds of scenes that made me start taking more pictures.",
     locations: [
       {
-        name: 'Doha',
-        note: 'Night architecture and lit facades.',
-        photos: [33]
+        name: "Montreal / sidewalks and skyline",
+        note: "Apartment streets, downtown facades, and city wandering.",
+        photos: [
+          "photo_2026-03-29_19-43-40.jpg",
+          "photo_2026-03-29_19-43-36.jpg",
+          "photo_2026-03-29_19-42-42.jpg"
+        ]
+      },
+      {
+        name: "Canada / water and long looks",
+        note: "Falls, lakes, bridges, and places where I stopped because the light was doing something worth keeping.",
+        photos: [
+          "photo_2026-03-29_19-43-00.jpg",
+          "photo_2026-03-29_19-42-47.jpg",
+          "photo_2026-03-29_19-42-44.jpg",
+          "photo_2026-03-29_19-42-11.jpg",
+          "photo_2026-03-29_19-42-04.jpg",
+          "photo_2026-03-29_19-42-02.jpg"
+        ]
+      },
+      {
+        name: "Canada / seasons and side roads",
+        note: "Snow, cherry blossoms, autumn color, deer, and roads that felt like a loading screen.",
+        photos: [
+          "photo_2026-03-29_19-42-58.jpg",
+          "photo_2026-03-29_19-42-41.jpg",
+          "photo_2026-03-29_19-42-07.jpg",
+          "photo_2026-03-29_19-41-59.jpg",
+          "photo_2026-03-29_19-41-57.jpg",
+          "photo_2026-03-29_19-41-55.jpg"
+        ]
       }
     ]
   },
   {
-    country: 'Czech Republic',
-    note: 'Prague ended up feeling like towers, river views, museums, and skyline after skyline.',
+    country: "Germany",
+    note: "Old towns, river views, church silhouettes, and streets that looked like they wanted to be walked slowly.",
     locations: [
       {
-        name: 'Prague Museum District',
-        note: 'Grand facades and monumental buildings.',
-        photos: [10, 40, 43]
+        name: "Nuremberg / old town",
+        note: "Walls, towers, lanes, and half-timbered geometry.",
+        photos: [
+          "photo_2026-03-29_19-43-27.jpg",
+          "photo_2026-03-29_19-43-26.jpg",
+          "photo_2026-03-29_19-43-24.jpg",
+          "photo_2026-03-29_19-43-20.jpg",
+          "photo_2026-03-29_19-43-18.jpg",
+          "photo_2026-03-29_19-43-17.jpg"
+        ]
       },
       {
-        name: 'Prague River and Castle Views',
-        note: 'Wide skyline shots, bridges, and long river perspectives.',
-        photos: [44, 46, 47, 49]
+        name: "Bamberg / river and street views",
+        note: "Waterfronts, alleys, bridges, and a softer kind of city light.",
+        photos: [
+          "photo_2026-03-29_19-43-23.jpg",
+          "photo_2026-03-29_19-43-21.jpg",
+          "photo_2026-03-29_19-43-02.jpg"
+        ]
       },
       {
-        name: 'Churches and Interiors',
-        note: 'High ceilings, stained glass, dark stone.',
-        photos: [12]
+        name: "Germany / night and weather",
+        note: "Night skies, rain, and darker moodier frames.",
+        photos: [
+          "photo_2026-03-29_19-43-33.jpg",
+          "photo_2026-03-29_19-42-56.jpg",
+          "photo_2026-03-29_19-41-50.jpg"
+        ]
+      },
+      {
+        name: "Germany / museum grounds",
+        note: "One more frame you flagged so it does not get lost in the wrong country again.",
+        photos: [
+          "photo_2026-03-29_19-43-30.jpg"
+        ]
       }
     ]
   },
   {
-    country: 'Austria',
-    note: 'Mostly Vienna: palace spaces, museum geometry, and open lawns.',
+    country: "Prague",
+    note: "Big skyline energy, pale facades, and castle views that looked unreal in clear light.",
     locations: [
       {
-        name: 'Vienna / Schonbrunn',
-        note: 'Palace grounds and long formal views.',
-        photos: [28, 45]
+        name: "Prague / monumental facade",
+        note: "Front-facing city drama.",
+        photos: [
+          "photo_2026-03-29_19-43-32.jpg"
+        ]
       },
       {
-        name: 'Vienna / Museum Quarter',
-        note: 'Urban architecture and museum frontage.',
-        photos: [40, 43]
+        name: "Prague / castle views",
+        note: "The wider skyline version.",
+        photos: [
+          "photo_2026-03-29_19-42-29.jpg",
+          "photo_2026-03-29_19-42-25.jpg"
+        ]
       }
     ]
   },
   {
-    country: 'Germany',
-    note: 'Old towns, rivers, church interiors, towers, and streets that look like they were built to be photographed slowly.',
+    country: "Austria",
+    note: "Vienna meant stained glass, museum facades, and Schonbrunn looking like it was built for a wide lens.",
     locations: [
       {
-        name: 'Nuremberg Old Town',
-        note: 'Timber framing, river edges, towers, and alleys.',
-        photos: [13, 14, 18, 19, 20]
+        name: "Vienna / interiors and facades",
+        note: "Church light and museum stone.",
+        photos: [
+          "photo_2026-03-29_19-43-29.jpg",
+          "photo_2026-03-29_19-42-30.jpg"
+        ]
       },
       {
-        name: 'Bamberg / River Town Mood',
-        note: 'Waterfronts, facades, and softer river light.',
-        photos: [16, 17, 29, 32, 39]
-      },
-      {
-        name: 'Street and Night Scenes',
-        note: 'Architecture after dark and weather-heavy moments.',
-        photos: [9, 15, 27]
-      },
-      {
-        name: 'Historic Buildings',
-        note: 'Larger facades and quieter exterior details.',
-        photos: [11]
+        name: "Vienna / Schonbrunn",
+        note: "Formal symmetry, lawns, and a lot of open sky.",
+        photos: [
+          "photo_2026-03-29_19-43-04.jpg",
+          "photo_2026-03-29_19-42-38.jpg"
+        ]
       }
     ]
   },
   {
-    country: 'Netherlands',
-    note: 'Canals, flowers, rain, churches, and Amsterdam doing Amsterdam things.',
+    country: "Netherlands",
+    note: "Amsterdam in rain, flowers, canals, and buildings that somehow look composed even when the weather is not.",
     locations: [
       {
-        name: 'Amsterdam Canals',
-        note: 'Waterlines, boats, church towers, flowers, and overcast weather.',
-        photos: [21, 22, 23, 24, 41]
+        name: "Amsterdam / canals",
+        note: "Boats, church towers, reflections, and rain-softened water.",
+        photos: [
+          "photo_2026-03-29_19-43-15.jpg",
+          "photo_2026-03-29_19-43-13.jpg",
+          "photo_2026-03-29_19-43-12.jpg",
+          "photo_2026-03-29_19-43-10.jpg"
+        ]
       },
       {
-        name: 'Amsterdam Streets and Facades',
-        note: 'Station frontage, houses, balconies, and street detail.',
-        photos: [25, 26, 48]
-      }
-    ]
-  },
-  {
-    country: 'Canada',
-    note: 'A mix of city scenes, autumn, snow, water, roads, and places that feel like home or near-home.',
-    locations: [
-      {
-        name: 'City Walks',
-        note: 'Urban moments, sidewalks, and reflective streets.',
-        photos: [5, 7, 69]
-      },
-      {
-        name: 'Nature and Water',
-        note: 'Falls, lakes, trees, and long-look landscapes.',
-        photos: [34, 36, 37, 38, 50, 58, 62, 66]
-      },
-      {
-        name: 'Autumn and Winter',
-        note: 'Snow, color, and seasonal mood.',
-        photos: [60, 63, 65, 67]
-      },
-      {
-        name: 'Roads and Quiet Views',
-        note: 'Dusk, silhouettes, mountain roads, and animals showing up on cue.',
-        photos: [30, 31, 61]
+        name: "Amsterdam / street details",
+        note: "Flags, facades, station fronts, and one very orange sky.",
+        photos: [
+          "photo_2026-03-29_19-43-08.jpg",
+          "photo_2026-03-29_19-43-05.jpg",
+          "photo_2026-03-29_19-42-26.jpg"
+        ]
       }
     ]
   }
 ];
 
-const createThumb = ({ n, caption }) => `
-  <button class="thumb-button clickable-image" type="button" data-image="${img(n)}" data-caption="${caption}">
-    <img src="${img(n)}" alt="${caption}" />
+const createThumb = ({ file, caption }) => `
+  <button class="thumb-button clickable-image" type="button" data-image="${asset(file)}" data-caption="${caption}">
+    <img src="${asset(file)}" alt="${caption}" />
     <span>${caption}</span>
   </button>
 `;
 
-const renderCards = (containerId, cards, className) => {
+const renderCards = (containerId, cards) => {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.innerHTML = cards
     .map(
       (card) => `
-        <article class="${className}">
+        <article class="work-card">
           <h3>${card.title}</h3>
           <p>${card.body}</p>
         </article>
       `
     )
-    .join('');
+    .join("");
 };
 
 const renderGrid = (containerId, photos) => {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.innerHTML = photos.map(createThumb).join('');
+  container.innerHTML = photos.map(createThumb).join("");
 };
 
 const renderTravel = () => {
-  const countryList = document.getElementById('country-list');
-  const countryView = document.getElementById('country-view');
+  const countryList = document.getElementById("country-list");
+  const countryView = document.getElementById("country-view");
   if (!countryList || !countryView) return;
 
   const renderCountry = (countryName) => {
@@ -336,12 +335,12 @@ const renderTravel = () => {
     countryList.innerHTML = travelAtlas
       .map(
         (country) => `
-          <button class="country-button ${country.country === current.country ? 'active' : ''}" type="button" data-country="${country.country}">
+          <button class="country-button ${country.country === current.country ? "active" : ""}" type="button" data-country="${country.country}">
             ${country.country}
           </button>
         `
       )
-      .join('');
+      .join("");
 
     countryView.innerHTML = `
       <div class="country-header">
@@ -356,17 +355,19 @@ const renderTravel = () => {
                 <h3>${location.name}</h3>
                 <p class="location-meta">${location.note}</p>
                 <div class="image-grid">
-                  ${location.photos.map((n) => createThumb({ n, caption: `${current.country} / ${location.name}` })).join('')}
+                  ${location.photos
+                    .map((file) => createThumb({ file, caption: `${current.country} / ${location.name}` }))
+                    .join("")}
                 </div>
               </section>
             `
           )
-          .join('')}
+          .join("")}
       </div>
     `;
 
-    countryList.querySelectorAll('[data-country]').forEach((button) => {
-      button.addEventListener('click', () => renderCountry(button.dataset.country));
+    countryList.querySelectorAll("[data-country]").forEach((button) => {
+      button.addEventListener("click", () => renderCountry(button.dataset.country));
     });
 
     bindClickableImages();
@@ -376,23 +377,29 @@ const renderTravel = () => {
 };
 
 const bindClickableImages = () => {
-  document.querySelectorAll('.clickable-image').forEach((button) => {
-    if (button.dataset.bound === 'true') return;
-    button.dataset.bound = 'true';
-    button.addEventListener('click', () => openLightbox(button.dataset.image, button.dataset.caption || button.querySelector('img')?.alt || 'Image'));
+  document.querySelectorAll(".clickable-image").forEach((button) => {
+    if (button.dataset.bound === "true") return;
+    button.dataset.bound = "true";
+    button.addEventListener("click", () => {
+      openLightbox(
+        button.dataset.image,
+        button.dataset.caption || button.querySelector("img")?.alt || "Image"
+      );
+    });
   });
 };
 
-renderCards('lab-highlights', labHighlights, 'highlight-card');
-renderCards('work-cards', workCards, 'work-card');
-renderGrid('soccer-grid', soccerPhotos);
-renderGrid('kitchen-grid', cookingPhotos);
-renderGrid('photo-grid', photoRoll);
+renderCards("lab-highlights", labHighlights);
+renderCards("teaching-cards", teachingCards);
+renderCards("project-cards", projectCards);
+renderCards("scholarship-cards", scholarshipCards);
+renderGrid("soccer-grid", soccerPhotos);
+renderGrid("kitchen-grid", cookingPhotos);
 renderTravel();
 bindClickableImages();
 
 let topZ = 20;
-const windows = [...document.querySelectorAll('[data-window]')];
+const windows = [...document.querySelectorAll("[data-window]")];
 
 const focusWindow = (win) => {
   topZ += 1;
@@ -403,38 +410,35 @@ const openWindow = (id) => {
   const win = document.getElementById(id);
   if (!win) return;
   win.hidden = false;
-  win.classList.add('open');
   focusWindow(win);
 };
 
 const closeWindow = (id) => {
   const win = document.getElementById(id);
-  if (!win) return;
-  if (id === 'hero-window') return;
+  if (!win || id === "hero-window") return;
   win.hidden = true;
-  win.classList.remove('open');
 };
 
-document.querySelectorAll('[data-open]').forEach((trigger) => {
-  trigger.addEventListener('click', () => openWindow(trigger.dataset.open));
+document.querySelectorAll("[data-open]").forEach((trigger) => {
+  trigger.addEventListener("click", () => openWindow(trigger.dataset.open));
 });
 
-document.querySelectorAll('[data-close]').forEach((trigger) => {
-  trigger.addEventListener('click', () => closeWindow(trigger.dataset.close));
+document.querySelectorAll("[data-close]").forEach((trigger) => {
+  trigger.addEventListener("click", () => closeWindow(trigger.dataset.close));
 });
 
 windows.forEach((win, index) => {
-  if (win.id !== 'hero-window') {
+  if (win.id !== "hero-window") {
     win.style.left = `${190 + (index % 3) * 24}px`;
     win.style.top = `${95 + (index % 4) * 18}px`;
   }
 
-  const bar = win.querySelector('.drag-handle');
+  const bar = win.querySelector(".drag-handle");
   if (!bar) return;
 
-  bar.addEventListener('mousedown', (event) => {
+  bar.addEventListener("mousedown", (event) => {
     if (window.innerWidth <= 920) return;
-    if (event.target.closest('.close-window')) return;
+    if (event.target.closest(".close-window")) return;
 
     focusWindow(win);
     const startX = event.clientX;
@@ -446,25 +450,25 @@ windows.forEach((win, index) => {
     const onMove = (moveEvent) => {
       win.style.left = `${originLeft + moveEvent.clientX - startX}px`;
       win.style.top = `${originTop + moveEvent.clientY - startY}px`;
-      win.style.marginLeft = '0';
+      win.style.marginLeft = "0";
     };
 
     const onUp = () => {
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseup", onUp);
     };
 
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onUp);
   });
 
-  win.addEventListener('mousedown', () => focusWindow(win));
+  win.addEventListener("mousedown", () => focusWindow(win));
 });
 
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightbox-image');
-const lightboxCaption = document.getElementById('lightbox-caption');
-const lightboxClose = document.getElementById('lightbox-close');
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const lightboxClose = document.getElementById("lightbox-close");
 
 function openLightbox(src, caption) {
   lightboxImage.src = src;
@@ -475,59 +479,54 @@ function openLightbox(src, caption) {
 
 function closeLightbox() {
   lightbox.hidden = true;
-  lightboxImage.src = '';
-  lightboxCaption.textContent = '';
+  lightboxImage.src = "";
+  lightboxCaption.textContent = "";
 }
 
 if (lightboxClose) {
-  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxClose.addEventListener("click", closeLightbox);
 }
 
 if (lightbox) {
-  lightbox.addEventListener('click', (event) => {
+  lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       closeLightbox();
     }
   });
 }
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
     if (!lightbox.hidden) {
       closeLightbox();
       return;
     }
-    const openWins = windows.filter((win) => !win.hidden && win.id !== 'hero-window');
+    const openWins = windows.filter((win) => !win.hidden && win.id !== "hero-window");
     const last = openWins.sort((a, b) => Number(b.style.zIndex || 0) - Number(a.style.zIndex || 0))[0];
     if (last) closeWindow(last.id);
   }
 });
 
-const clock = document.getElementById('clock');
+const clock = document.getElementById("clock");
 if (clock) {
   const updateClock = () => {
-    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     clock.textContent = time;
   };
   updateClock();
   setInterval(updateClock, 30000);
 }
 
-const visitCount = document.getElementById('visit-count');
+const visitCount = document.getElementById("visit-count");
 if (visitCount) {
-  const namespace = 'ashishgiri156.github.io';
-  const key = 'ashish-giri-portfolio-visits';
+  const namespace = "ashishgiri156.github.io";
+  const key = "ashish-giri-portfolio-visits";
   fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
     .then((response) => response.json())
     .then((data) => {
-      if (typeof data.value === 'number') {
-        visitCount.textContent = data.value.toLocaleString();
-      } else {
-        visitCount.textContent = 'n/a';
-      }
+      visitCount.textContent = typeof data.value === "number" ? data.value.toLocaleString() : "n/a";
     })
     .catch(() => {
-      visitCount.textContent = 'n/a';
+      visitCount.textContent = "n/a";
     });
 }
-
