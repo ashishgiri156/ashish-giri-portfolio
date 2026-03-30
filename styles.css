@@ -679,15 +679,132 @@ button {
 }
 
 @media (max-width: 640px) {
-  .desktop-stage { padding: 5.2rem 0.6rem 5rem; }
-  .desktop-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .window-content { padding: 0.8rem; }
-  .hero-photo { min-height: 360px; }
-  .scene-row { grid-template-columns: 1fr; }
+  .top-strip {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding: 0.7rem 0.7rem 0.65rem;
+  }
+
+  .system-name { font-size: 0.58rem; }
+  .system-status {
+    width: 100%;
+    font-size: 0.46rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  .visit-pill {
+    margin-left: 0;
+  }
+
+  .desktop-stage { padding: 6.8rem 0.55rem 5.35rem; }
+
+  .desktop-icons {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.65rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.2rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .desktop-icon {
+    flex: 0 0 116px;
+    min-width: 116px;
+    min-height: 98px;
+    scroll-snap-align: start;
+    padding: 0.7rem 0.5rem 0.6rem;
+  }
+
+  .desktop-icon span:last-child {
+    font-size: 0.4rem;
+  }
+
+  .icon-sprite {
+    width: 48px;
+    height: 48px;
+  }
+
+  .window-bar {
+    padding: 0.68rem 0.78rem;
+    font-size: 0.5rem;
+  }
+
+  .window-content {
+    padding: 0.78rem;
+    max-height: none;
+  }
+
+  .hero-photo { min-height: 300px; }
   .hero-dek { font-size: 1rem; }
+
+  .scene-grid,
+  .hero-actions {
+    gap: 0.65rem;
+  }
+
+  .scene-row { grid-template-columns: 1fr; gap: 0.65rem; }
+
+  .hero-actions .pixel-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .country-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .country-button {
+    font-size: 0.46rem;
+    padding: 0.72rem 0.58rem;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thumb-button span {
+    padding: 0.6rem 0.65rem;
+    font-size: 0.82rem;
+  }
 
   .soccer-grid .thumb-button:first-child,
   .food-grid .thumb-button:first-child { grid-column: span 1; }
 
-  .taskbar { grid-template-columns: 1fr; }
+  .taskbar {
+    grid-template-columns: auto 1fr auto;
+    gap: 0.45rem;
+    padding: 0.45rem 0.5rem;
+  }
+
+  .start-btn,
+  .clock {
+    padding: 0.48rem 0.62rem;
+    font-size: 0.54rem;
+  }
+
+  .taskbar-text {
+    min-width: 0;
+    padding: 0.48rem 0.58rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .lightbox {
+    padding: 0.7rem;
+  }
+
+  .lightbox-close {
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 48px;
+    height: 48px;
+  }
 }
